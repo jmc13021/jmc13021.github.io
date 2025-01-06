@@ -1,0 +1,160 @@
+<html>
+
+	<head>
+		<title></title>
+	</head>
+	<body>
+<center>
+<hr>
+<table width=99% style="max-width: 1000px;">
+
+  <tbody>
+    <tr>
+      <td>
+&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;<a href="index.html"> home </a> 
+&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;<a href="research.html">   research   </a> 
+&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;<a href="students.html">   students   </a> 
+&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;<a href="courses.html">   courses   </a> 
+&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;<a href="publications.html">   publications   </a> 
+&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;<a href="cv_Connors.pdf">    vitae    </a> 
+&nbsp;&nbsp;-&nbsp;&nbsp;-&nbsp;&nbsp;      </td>
+
+     </tr>
+</table>
+<hr>
+<div align="left">
+
+<b>Research</b>
+<br>
+<br> 
+<br>
+<b>Flux partitioning for air-sea interaction</b> <br> 
+Computationally demanding applications like climate prediction and weather forecasting often <br>
+require air and sea codes to be coupled together.  There are many complications.  The air <br>
+and sea systems are quite different, so that their efficient simulation requires a heterogeneous <br>
+modeling approach.  Various numerical methods are employed together simultaneously; in particular,  <br>
+the air and sea model may use different spatial grid sizes and internal time steps.  In order to  <br>
+run these codes together, a popular approach is to use a so-called ''flux coupler'' that takes  <br>
+in state and grid information from the two fluid modules and computes net fluxes of conserved  <br>
+physical quantities.  The fluxes are used to prescribe boundary conditions for the two fluid  <br>
+codes.  Among many issues that the flux coupler must handle, mismatching grids and time steps  <br>
+introduce questions for constructing accurate, conservative and stable flux computations.  <br>
+<br> 
+Over many years now, numerous papers have appeared that address various aspects of the time <br> 
+stepping problem.  Typical methods have a (formally) low order of accuracy in terms of error scaling with <br> 
+respect to time step sizes.  But methods development is nontrivial.  Nonlinear fluxes and the related <br>
+boundary conditions have presented a formidable challenge to construct and analyze methods, leading to <br>
+some open theoretical problems. Conservation is important for fluxes, but numerous analyses indicate <br> 
+a fundamental problem to construct methods that are both very stable and conservative.  Connors, Howell <br>
+and Layton <a href="https://epubs.siam.org/doi/abs/10.1137/090773362">(SINUM, 2012)</a> presented some non-conservative, low-order methods with one being unconditionally <br>
+stable.  The stability of the other methods was left open and only some inconclusive conditional analysis <br> 
+has appeared since for that issue.  Based on these methods, it was shown for coupled fluids with <br> 
+natural heat convection <a href="https://link.springer.com/article/10.1007/s10596-010-9219-x">(Connors and Ganis, 2011)</a> that numerical bias introduced through coupling errors <br> 
+could potentially not be captured in parameter sensitivity studies, even when it outweighs other sources <br> 
+of model uncertainty.  The only known high-order method with unconditional stability <br> 
+appeared recently <a href="https://epubs.siam.org/doi/abs/10.1137/17M1148219">(Aggul, Connors, Erkmen and Labovsky, SINUM, 2018)</a>.  This approach uses the <br> 
+<i>deferred correction</i> technique to iteratively achieve high-order accuracy from the stable, low-order <br> 
+method of Connors, Howell and Layton, so it is still not conservative.  The existence of a non-iterative, <br>
+unconditionally stable and high-order method also remains open, conservative or otherwise.  <br> 
+<br> 
+Also, the high computational cost for applications requires that the highly-optimized codes be used with the <br> 
+flux-coupler connectivity, which imposes some constraints on the practical side for methods development.  In <br> 
+turn, there has been a need to develop theoretical coupling frameworks for a non-intrusive class of methods. <br> 
+In lieu of developing methods with built-in unconditional stability properties, another approach has been to <br> 
+investigate ways to mitigate stability issues.  Some work has appeared exploring iteration between air and <br>
+sea modules over a time interval to tighten the coupling and improve accuracy conservatively (for example <br> 
+see <a href="https://www.sciencedirect.com/science/article/pii/S1877050915012818">Lemari&eacute;, Blayo and Debreu, <i>Procedia Computer Science</i>, 2015</a>).  Many related coupling <br> 
+configurations have recently been explored (<a href="http://www.global-sci.org/intro/article_detail/aamm/13305.html">Connors and Dolan, <i>AAMM 2019</i></a>) using least-squares based <br> 
+flux computations to achieve high-order accuracy with moments of the flux conserved over a coupling time <br> 
+interval.  Experiments therein indicate that iteration can increase stability and accuracy, but not much <br> 
+compared to decreasing time step sizes and using higher-order methods.  Meanwhile, a natural question is <br> 
+how to develop an adaptive method.  A stability indicator that could be easily computed on-the-fly was <br> 
+used by Connors and Dolan as a way to selectively iterate for stability, but some evidence shows that <br> 
+adaptive time step selection is probably more useful.  At present, adaptive methods for flux computations <br> 
+are still in their infancy. <br> 
+<br> 
+There have been further developments for air and sea codes as well as coupling software in recent years.  As <br>
+next-generation computing platforms loom in the future, current code structures may become more adaptable and <br>
+computational details of model layering, mesh and time step parameters will likely change, in turn changing <br>
+the picture for coupling techniques.  Methods that seem less applicable now may become more attractive later. <br>
+<br>
+<br>
+<b>Numerical error estimation</b> <br> 
+Complex simulations have numerous sources of uncertainty that can make it difficult to interpret model <br> 
+outputs.  One source of uncertainty is numerical discretization error, which motivates techniques to compute <br>
+estimates of this error, in particular for use with computationally demanding simulations.   This is a <br> 
+different perspective from the classical techniques of numerical error estimation motivated primarily by <br>
+adaptive mesh refinement.  One promising approach is the technique of <i>nonlinear error transport</i>, which <br>
+has had success even for computing errors near discontinuities, including shocks in fluids (see, for example, <br>
+Banks, Hittinger, Connors and Woodward; <a href="https://www.sciencedirect.com/science/article/pii/S0045782511003677">CMAME 2012</a> and <a href="https://books.google.com/books?hl=en&lr=&id=PasxAAAAQBAJ&oi=fnd&pg=PA35&dq=A+posteriori+error+estimation+via+nonlinear+error+transport+with+application+to+shallow+water&ots=MmnThsm4Un&sig=N72qV02HL--aL3sCjoVYCqcS8Es#v=onepage&q=A%20posteriori%20error%20estimation%20via%20nonlinear%20error%20transport%20with%20application%20to%20shallow%20water&f=false">Contemp. Math. 2013</a>).  This technique approximates <br>
+the entire field of errors for computed states in space and time, yielding quite detailed error information.  It <br>
+is based on the idea of deriving the error equation corresponding to your governing equation, then modifying <br> 
+it in a standardized way to make it amenable to subsequent numerical approximation, yielding an error estimate.  <br> 
+<br>
+Another interesting approach is <i>adjoint error estimation</i>, which focuses instead on a functional <br> 
+measurement of the error.  An integral expression for the error in the functional measurement can be derived <br>
+by defining a certain adjoint problem, which depends on the primal (governing) problem and the choice of <br> 
+functional.  The integral expression is approximated by inserting computed states for the primal and adjoint <br>
+problems, yielding a computable error estimate.  This approach has the advantage of being able to simultaneously <br>
+compute the error and adapt the computational grid according to the functional of interest.  The accuracy of <br> 
+the error estimate can again be quite good even with a discontinuous solution (Connors, Banks, Hittinger and <br>
+Woodward, <a href="https://epubs.siam.org/doi/abs/10.1137/110845100">SINUM 2013</a>).  <br>
+<br> 
+Interestingly, adjoint methods have also proved useful for separating discretization errors into <br> 
+components, which is of particular use for multiscale and multiphysics applications.  For example, in <br> 
+multiphysics applications operator-splitting techniques are popular (Lie-Trotter, Strang, <i>etc</i>.) as a <br>
+way to resolve two (or more) different physical processes that happen simultaneously, by numerically separating <br> 
+them to evolve independently for very short time intervals.  In this way, the system can be simulated by <br> 
+putting together individual codes that are highly optimized for the separate physical processes.  However, <br> 
+the artificial separation of the physical processes introduces a type of numerical error, which is coupled <br> 
+to the underlying discretization errors from the code modules being used for each process.  It raises a <br> 
+question of the size of the so-called <i>splitting error</i> relative to the discretization errors.  In fact, <br>
+separating errors into components and computing estimates of each component is often possible with sufficient <br>
+accuracy to distinguish their relative sizes well.  Connors, Banks, Hittinger and Woodward demonstrated this <br>
+when splitting advection and diffusion operators (<a href="https://www.sciencedirect.com/science/article/pii/S0045782514000103">CMAME 2014</a>), for example.  Other sorts of error decomposition <br>
+is a subject of on-going research.  <br>
+<br>
+
+<b>Computing dissipative solitons</b> <br>
+In nature, there are many examples of pattern formation.  Many such phenomena are modeled using reaction-diffusion <br> 
+equations, in particular activator-inhibitor systems that allow a delicate balance between gain and loss of energy and <br>  
+chemical concentrations. Against an ambient background state, localized structures like wave fronts and pulses are <br> 
+commonly observed.  Stable traveling pulses are often called <i>dissipative solitons</i> in this context, as they interact <br> 
+with one another in particle-like manners.  There is a voluminous body of literature both for mathematical analysis of <br> 
+these patterns and numerical simulations to explore many of their properties. <br>
+<br> 
+Theoretical analysis has its limitations and many questions remain. In some particular parameter regimes and with <br> 
+some systems, it is not known what sorts of patterns like standing or traveling waves may exist. It can be helpful <br> 
+to explore by using numerical simulation, for which purpose the popular technique is parameter continuation. It may <br> 
+be possible to calculate an initial wave profile in various ways for a particular choice of model parameters, then <br>
+incrementally adjust the parameters and update the computed profile to explore solutions along bifurcation curves <br>
+in parameter space. As an illustration, when seeking traveling dissipative solitons for certain systems, a <br>
+common approach has been to start from a standing wave solution (so wave speed zero). Continuation is then done <br>
+by slowly increasing the wave speed to find traveling solitons. For some problems, the result finds only <br>
+unstable waves, leading researchers to conjecture that traveling soliton solutions do not exist. <br>
+<br>
+Recently, Choi and Connors proposed using a steepest-decent approach to compute solitons (see <a href="https://link.springer.com/article/10.1007/s13160-019-00389-9">Choi and Connors, 2020</a>). <br> 
+It is a robust supplement for the classical continuation approach that applies when the governing equations have <br> 
+a variational structure. In this case, the governing equations are the Euler-Lagrange equation for a certain variational <br> 
+functional; minimizing this energy functional identifies a wave pattern. The method does not require any detailed <br> 
+information about the solution <i>a priori</i>, so that one can search virtually anywhere in parameter space for solutions <br> 
+independently, rather than approaching along a bifurcation curve (which may not connect to some solutions). In fact, <br> 
+Choi and Connors found examples of dissipative solitons in 2D for a situation where they were believed not to exist. In <br> 
+future studies, it will be interesting to see how the steepest-decent and continuation methods can be used together and <br> 
+learn new things about patterns in nature. <br>
+
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+	  <p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</body>
+</html>
+
