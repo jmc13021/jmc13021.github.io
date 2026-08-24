@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Finite Element Circus, Fall 2026</title>
+    
+    <style>
+        /* Modern, clean typography and background */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Centralized content container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header layout using Flexbox */
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #eeeeee;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header-info {
+            font-size: 0.95em;
+        }
+
+        .header-info strong {
+            font-size: 1.1em;
+            color: #000E2F; /* UConn Navy */
+        }
+
+        /* Headings */
+        h2 {
+            color: #000E2F;
+            border-bottom: 2px solid #eeeeee;
+            padding-bottom: 8px;
+            margin-top: 1.5em;
+        }
+
+        /* Links and Buttons */
+        a {
+            color: #005587;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #000E2F;
+            color: #ffffff !important;
+            padding: 12px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 20px 0;
+            transition: background-color 0.2s;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #003366;
+            text-decoration: none;
+        }
+
+        /* Back to home link */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eeeeee;
+            font-size: 0.85em;
+            text-align: center;
+            color: #666666;
+        }
+
+        /* Responsive adjustments for mobile */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-info {
+                margin-top: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <header>
+        <div class="logo">
+            <img src="./fecircus-fa26-files/LIS_triangulation.png" width="350" alt="Triangulation Graphic">
+        </div>
+        <div class="header-info">
+            <strong>University of Connecticut</strong><br>
+            Avery Point Campus<br>
+            1080 Shennecossett Rd<br>
+            Groton, CT 06340
+        </div>
+    </header>
+
+    <main>
+        <a href="fecircus-fa26-home.html" class="back-link">&larr; Back to Home</a>
+
+        <h2>Conference Registration</h2>
+        <p><strong>Finite Element Circus &mdash; October 16-17, 2026</strong></p>
+        
+        <p>There is no registration fee to attend the Finite Element Circus. However, we ask that all attendees register in advance so the organizers can get an accurate headcount, especially for organizing the conference dinner and breakfast.</p>
+
+        <p>Please click the button below to fill out the registration form via Google Forms. It should only take a minute to complete.</p>
+
+        <!-- REPLACE THE LINK IN THE HREF ATTRIBUTE BELOW -->
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSenX3r9VufzOqOJjGuwxtGU9MSpNZhIfSpss54KHfu31BirBQ/viewform?usp=publish-editor" class="btn" target="_blank" rel="noopener noreferrer">
+            Open Registration Form
+        </a>
+
+        <p>If you have any questions or need to update your registration information later, please <a href="mailto:jeffrey.connors@uconn.edu">contact the organizers</a>.</p>
+    </main>
+
+    <footer>
+        <p>Site maintained by <a href="http://www.math.uconn.edu/~leykekhman">Dmitriy Leykekhman</a>. <br>
+        Please e-mail your comments to: dmitriy.leykekhman (at) uconn.edu</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
